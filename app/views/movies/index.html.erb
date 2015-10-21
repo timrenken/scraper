@@ -7,14 +7,14 @@
     <tr>
       <th>Title</th>
       <th>Hotness</th>
-      <th>Image url</th>
+      <th>Image</th>
       <th>Synopsis</th>
       <th>Rating</th>
       <th>Genre</th>
       <th>Director</th>
       <th>Release date</th>
       <th>Runtime</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -23,7 +23,7 @@
       <tr>
         <td><%= movie.title %></td>
         <td><%= movie.hotness %></td>
-        <td><%= movie.image_url %></td>
+        <td><%= image_tag movie.image_url %></td>
         <td><%= movie.synopsis %></td>
         <td><%= movie.rating %></td>
         <td><%= movie.genre %></td>
@@ -31,7 +31,6 @@
         <td><%= movie.release_date %></td>
         <td><%= movie.runtime %></td>
         <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -39,5 +38,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Movie', new_movie_path %>
