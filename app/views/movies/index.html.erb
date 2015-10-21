@@ -1,40 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Movies</h1>
+<% @movies.each do |movie| %>
+  <div class='row'>
+    <div>
+      <h1 class='text-center'><%= movie.title %></h1>
+    </div>
 
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Hotness</th>
-      <th>Image</th>
-      <th>Synopsis</th>
-      <th>Rating</th>
-      <th>Genre</th>
-      <th>Director</th>
-      <th>Release date</th>
-      <th>Runtime</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+    <div class='col-md-2'>
+      <div class='thumbnail'><%= image_tag movie.image_url %></div>
+    </div>
 
-  <tbody>
-    <% @movies.each do |movie| %>
-      <tr>
-        <td><%= movie.title %></td>
-        <td><%= movie.hotness %></td>
-        <td><%= image_tag movie.image_url %></td>
-        <td><%= movie.synopsis %></td>
-        <td><%= movie.rating %></td>
-        <td><%= movie.genre %></td>
-        <td><%= movie.director %></td>
-        <td><%= movie.release_date %></td>
-        <td><%= movie.runtime %></td>
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class='col-md-5'>
+      <p>
+        <strong>Synopsis:</strong>
+        <%= movie.synopsis %>
+      </p>
+    </div>
 
-<br>
+    <div class='col-md-5'>
+      <p>
+        <strong>Hotness:</strong>
+        <%= movie.hotness %>%
+      </p>
+      <p>
+        <strong>Rating:</strong>
+        <%= movie.rating %>
+      </p>
+      <p>
+        <strong>Genre:</strong>
+        <%= movie.genre %>
+      </p>
+      <p>
+        <strong>Director:</strong>
+        <%= movie.director %>
+      </p>
+      <p>
+        <strong>Release date:</strong>
+        <%= movie.release_date %>
+      </p>
+      <p>
+        <strong>Runtime:</strong>
+        <%= movie.runtime %>
+      </p>
+      <p><%= link_to 'Already watched?', movie, method: :delete, data: { confirm: 'Are you sure you want to remove this movie?' } %></p>
+    </div>
+  </div>
+  <hr>
+<% end %>

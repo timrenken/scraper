@@ -1,50 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @movie.title %>
-</p>
+<div>
+  <h1 class='text-center'><%= @movie.title %></h1>
+</div>
+<hr>
+<div class='col-md-2'>
+  <%= image_tag @movie.image_url %>
+</div>
 
-<p>
-  <strong>Hotness:</strong>
-  <%= @movie.hotness %>
-</p>
+<div class='col-md-5'>
+  <p>
+    <strong>Synopsis:</strong>
+    <%= @movie.synopsis %>
+  </p>
+</div>
 
-<p>
-  <strong>Image url:</strong>
-</p>
+<div class='col-md-5'>
+  <p>
+    <strong>Hotness:</strong>
+    <%= @movie.hotness %>%
+  </p>
+  <p>
+    <strong>Rating:</strong>
+    <%= @movie.rating %>
+  </p>
+  <p>
+    <strong>Genre:</strong>
+    <%= @movie.genre %>
+  </p>
+  <p>
+    <strong>Director:</strong>
+    <%= @movie.director %>
+  </p>
+  <p>
+    <strong>Release date:</strong>
+    <%= @movie.release_date %>
+  </p>
+  <p>
+    <strong>Runtime:</strong>
+    <%= @movie.runtime %>
+  </p>
+  <p><%= link_to 'Already watched?', @movie, method: :delete, data: { confirm: 'Are you sure you want to remove this movie?' } %></p>
+</div>
 
-<%= image_tag @movie.image_url %>
 
-<p>
-  <strong>Synopsis:</strong>
-  <%= @movie.synopsis %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @movie.rating %>
-</p>
-
-<p>
-  <strong>Genre:</strong>
-  <%= @movie.genre %>
-</p>
-
-<p>
-  <strong>Director:</strong>
-  <%= @movie.director %>
-</p>
-
-<p>
-  <strong>Release date:</strong>
-  <%= @movie.release_date %>
-</p>
-
-<p>
-  <strong>Runtime:</strong>
-  <%= @movie.runtime %>
-</p>
-
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>

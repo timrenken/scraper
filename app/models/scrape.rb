@@ -12,7 +12,7 @@ class Scrape
       self.image_url = doc.at_css('#movie-image-section img')['src']
       self.rating = doc.at("//td[@itemprop = 'contentRating']").text
       self.genre = doc.at("//span[@itemprop = 'genre']").text
-      self.director = doc.at("//span[@itemprop = 'name']").text
+      self.director = doc.at("//span[@itemprop = 'name']").text.tidy_bytes
       self.release_date = doc.at("//td[@itemprop = 'datePublished']").text.to_date
       self.runtime = doc.at("//time[@itemprop = 'duration']").text
       self.synopsis = doc.css("#movieSynopsis").text.tidy_bytes

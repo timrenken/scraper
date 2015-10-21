@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<div class='row'>
+<% @movies.each do |movie| %>
+
+  <div class='col-md-3'>
+    <h4 class='text-center'><%= link_to movie.title, movie_path(movie) %></h4>
+    <div class='thumbnail'><%= image_tag movie.image_url %></div>
+    <p class='text-center'><%= link_to 'Already watched?', movie, method: :delete, data: { confirm: 'Are you sure? I will remove this movie if you have already seen it.' } %></p>
+  
+  </div>
+
+
+<% end %>
+  </div>
